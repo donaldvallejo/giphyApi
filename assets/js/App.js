@@ -5,16 +5,19 @@ $(document).on("ready", function(){
   $("form").on("submit", function(e) {
     e.preventDefault();
 
+
+    var buttonText = $("#buttonText").val();
+
     $("form [name='offset']").val(0);
     showgif();
 
-    function button() {
-      $(".gif-buttons").show().prepend("<button class='gifButton'>works</button>");
-      
+    function makeButton() {
+      $(".gif-buttons").show().prepend("<button id='gifButton'>" + buttonText + "</button>");
     }
-    button();
-
+    makeButton();
   });
+
+
 });
 
 function showgif() {
@@ -31,7 +34,7 @@ function onSuccess(json) {
   if (json.pagination.offset === 0) {
     $(".gif-img").remove();
   }
-  json.data.forEach(function(v, i){
+  json.data.forEach(function(v){
     $(".gif-gallery").append($("<img class='img-responsive img-thumbnail gif-img' src="+v.images.fixed_height.url+">"));
   });
 }
