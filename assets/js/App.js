@@ -3,7 +3,6 @@ var giphy_api = "http://api.giphy.com/v1/gifs/search";
 $(document).on("ready", function(){
   // logic function for previous search buttons to populate element with gifs
 
-
   $("#go").on("click", function(e) {
     e.preventDefault();
     var searchString = $("#buttonText").val();
@@ -17,8 +16,6 @@ $(document).on("ready", function(){
       });
     }
     makeButton();
-
-    // make last elements empty() when a new search is clicked
 
     //  connect #buttonText value to the gif loop to print them on the page.
     function fetchAndDisplayGifs() {
